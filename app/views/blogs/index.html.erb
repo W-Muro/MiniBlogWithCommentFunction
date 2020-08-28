@@ -1,0 +1,19 @@
+<%= render "layouts/flash_message" %>
+<h1>Blogs#index</h1>
+<%= render "layouts/link" %>
+
+<h2>投稿されたブログ</h2>
+<ul>
+  <% @blogs.each do |blog| %>
+    <li class="blog_wrap">
+      <h3>タイトル: <%= blog.title %></h3>
+      <div class="blog_body">本文: <%= blog.body %></div>
+      <p>ユーザー名: <%= blog.user.name %></p>
+      <%= link_to "ブログ削除", blog_path(blog.id), data: { confirm: "本当に削除しますか？" },
+       method: :delete %>
+    </li>
+    <%= render "layouts/comment_list", blog: blog %>
+
+    <%= render "layouts/comment_form", blog: blog %>
+  <% end %>
+</ul>

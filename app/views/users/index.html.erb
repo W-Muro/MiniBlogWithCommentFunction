@@ -1,0 +1,16 @@
+<%= render "layouts/flash_message" %>
+<h1>Users#index</h1>
+
+<h2>登録済みのユーザー</h2>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <span>ユーザー名: </span>
+      <%= user.name %>
+      <%= link_to "削除", user_path(user.id), data: { confirm: "本当に削除しますか？" },
+       method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= render "layouts/link" %>

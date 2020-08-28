@@ -1,0 +1,26 @@
+<h1>Blogs#new</h1>
+<%= render "layouts/link" %>
+
+<h2>新規ブログ作成</h2>
+<% if @users.blank? %>
+  <p>ユーザーを一人以上作成して下さい。</p>
+<% else %>
+  <%= form_with model: @blog, local: true do |f| %>
+    <p class="form_label"><%= f.label :title %><span class="required">必須</span></p>
+    <%= f.text_field :title %>
+    <%= render "layouts/error_messages", model: @blog, attribute: :title %>
+
+    <p class="form_label"><%= f.label :body %><span class="required">必須</span></p>
+    <%= f.text_area :body %>
+    <%= render "layouts/error_messages", model: @blog, attribute: :body %>
+
+    <div class="current_user">
+      <%= collection_select :user, :id, @users, :id, :name, required: true %>
+      <label>ブログを投稿するユーザーを選択してください。</label>
+    </div>
+
+    <div class="button">
+      <%= f.submit "投稿" %>
+    </div>
+  <% end %>
+<% end %>

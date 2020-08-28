@@ -1,0 +1,14 @@
+<%= form_with model: @comment, url: blog_comments_path(blog_id: blog.id), local: true do |f|  %>
+  <%= f.text_area :body, placeholder: "コメントを入力してください", required: true %>
+  <%= render "layouts/error_messages", model: @comment, attribute: :body %>
+
+  <div class="current_user">
+    <span>
+      <%= collection_select :user, :id, @users, :id, :name %><label>コメントを投稿するユーザーを選択してください。</label>
+    </span>
+  </div>
+
+  <span class="button">
+    <%= f.submit "コメント投稿" %>
+  </span>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Users#new</h1>
+<%= render "layouts/link" %>
+
+<h2>新規ユーザー作成</h2>
+<%= form_with model: @user, local: true do |f| %>
+  <p class="form_label"><%= f.label :name %><span class="required">必須</span></p>
+  <%= f.text_field :name %>
+  <%= render "layouts/error_messages", model: @user, attribute: :name %>
+
+  <div class="button">
+    <%= f.submit "ユーザー作成" %>
+  </div>
+<% end %>

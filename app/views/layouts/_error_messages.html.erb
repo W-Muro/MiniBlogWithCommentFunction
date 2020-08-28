@@ -1,0 +1,7 @@
+<% if model.errors.any? %>
+  <span class="alert alert-warning">
+    <% model.errors.full_messages_for(attribute).each do |message| %>
+      <%= message.html_safe %>
+    <% end %>
+  </span>
+<% end %>
