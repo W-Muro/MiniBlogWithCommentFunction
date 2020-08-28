@@ -1,24 +1,4 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ログイン処理を省いた「ユーザー作成」「ミニブログ投稿」「コメント投稿」アプリ。
+コード中の「current_user」はparamsから取り出していますが、通常はログイン後にセッションから取り出す必要があるので注意してください。
