@@ -1,9 +1,13 @@
 <ul>
-  <% blog.comments.each do |comment| %>
-    <li>
-      <%= comment.body %> by <%= comment.user.name %>
-      <%= link_to "コメント削除", blog_comment_path(blog_id: blog.id, id: comment.id),
-       data: { confirm: "本当に削除しますか？" }, method: :delete %>
-     </li>
+  <% if blog.comments.length != 0 %>
+    <% blog.comments.each do |comment| %>
+        <li>
+          <%= comment.body %> by <%= comment.user.name %>
+          <%= link_to "コメント削除", blog_comment_path(blog_id: blog.id, id: comment.id),
+          data: { confirm: "本当に削除しますか？" }, method: :delete %>
+        </li>
+    <% end %>
+  <% else %>
+    <p>コメントがありません。</p>
   <% end %>
 </ul>
