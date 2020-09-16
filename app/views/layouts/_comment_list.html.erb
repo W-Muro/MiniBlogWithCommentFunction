@@ -1,5 +1,5 @@
 <ul>
-  <% if blog.comments.length != 0 %>
+  <% if blog.comments.present? %>
     <% blog.comments.each do |comment| %>
         <li>
           <%= comment.body %> by <%= comment.user.name %>
